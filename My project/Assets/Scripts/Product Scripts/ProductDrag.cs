@@ -4,12 +4,14 @@ using UnityEngine.InputSystem;
 
 public class ProductDrag : MonoBehaviour
 {
-    private Vector3 offset; //Stores the difference between the mouse and product position
-    private Camera mainCamera; //Stores the main camera
-    private Rigidbody2D rb; //Stores the product's physics component
+    private Vector3 offset; //Difference between mouse and product position
+    private Vector3 targetPosition; //Where the product should move
+    private Camera mainCamera; //Reference to the main camera
+    private Rigidbody2D rb; //Product physics component
 
-    private bool isDragging = false; //Checks if the product is currently being dragged
-    private float originalGravity; //Stores the product's original gravity setting
+    private bool isDragging = false; //Checks if the product is being dragged
+    private float originalGravity; //Stores the original gravity setting
+    private RigidbodyType2D originalBodyType; //Stores the original physics type
 
     //Runs when the game starts
     void Start()
@@ -17,66 +19,88 @@ public class ProductDrag : MonoBehaviour
         //Get the main camera
         mainCamera = Camera.main;
 
-        //Get the product's Rigidbody2D component
+        //Get the Rigidbody2D component
         rb = GetComponent<Rigidbody2D>();
 
-        //Store the original gravity setting
+        //Store the original physics settings
         if (rb != null)
         {
             originalGravity = rb.gravityScale;
+            originalBodyType = rb.bodyType;
         }
+
+        targetPosition = transform.position;
     }
 
     //Runs when the player clicks the product
     void OnMouseDown()
     {
+        if (Mouse.current == null)
+            return;
+
         //Get the mouse position in the game world
-        Vector3 mousePosition = mainCamera.ScreenToWorldPoint(
-            Mouse.current.position.ReadValue()
-        );
+        Vector3 mousePosition = GetMouseWorldPosition();
 
-        //Calculate the offset so the product doesn't jump to the mouse
-        offset = transform.position - new Vector3(mousePosition.x, mousePosition.y, transform.position.z);
+        //Calculate the offset so the product doesn't jump
+        offset = transform.position - mousePosition;
 
-        //Turn off gravity while the product is being dragged
+        //Stop physics from fighting against dragging
         if (rb != null)
         {
-            rb.gravityScale = 0;
-
-            //Stop any existing movement
+            rb.bodyType = RigidbodyType2D.Kinematic;
             rb.linearVelocity = Vector2.zero;
         }
 
-        //Set dragging to true
+        //Start dragging the product
         isDragging = true;
     }
 
     //Runs while the player holds and moves the mouse
     void OnMouseDrag()
     {
-        //Only move the product if it is being dragged
         if (!isDragging)
             return;
 
-        //Get the current mouse position
-        Vector3 mousePosition = mainCamera.ScreenToWorldPoint(
-            Mouse.current.position.ReadValue());
-
-        //Move the product to follow the mouse
-        transform.position = new Vector3
-            (mousePosition.x, mousePosition.y, transform.position.z) + offset;
+        //Update the target position using the moving camera
+        targetPosition = GetMouseWorldPosition() + offset;
     }
 
-    //Runs when the player releases the mouse button
+    //Runs during the physics update
+    void FixedUpdate()
+    {
+        //Move the product smoothly while dragging
+        if (isDragging && rb != null)
+        {
+            rb.MovePosition(targetPosition);
+        }
+    }
+
+    //Runs when the player releases the mouse
     void OnMouseUp()
     {
-        //Set dragging to false
+        //Stop dragging
         isDragging = false;
 
-        //Restore the original gravity setting
+        //Restore the original physics settings
         if (rb != null)
         {
+            rb.bodyType = originalBodyType;
             rb.gravityScale = originalGravity;
+            rb.linearVelocity = Vector2.zero;
         }
+    }
+
+    //Gets the mouse position relative to the product's depth
+    Vector3 GetMouseWorldPosition()
+    {
+        Vector3 mousePosition = Mouse.current.position.ReadValue();
+
+        float distance = Mathf.Abs(
+            mainCamera.transform.position.z - transform.position.z
+        );
+
+        mousePosition.z = distance;
+
+        return mainCamera.ScreenToWorldPoint(mousePosition);
     }
 }

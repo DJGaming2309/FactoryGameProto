@@ -38,8 +38,8 @@ public class ProductionMachine : MonoBehaviour
         //Check that the product has physics attached
         if (rb != null)
         {
-            //Make the product pop upwards and to the right
-            rb.AddForce(new Vector2(popForce, popForce),ForceMode2D.Impulse);
+            //Give the product a small horizontal push
+            rb.AddForce(Vector2.right * popForce,ForceMode2D.Impulse);
         }
     }
 

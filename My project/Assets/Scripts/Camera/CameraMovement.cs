@@ -6,6 +6,12 @@ public class CameraMovement : MonoBehaviour
 {
     public float cameraSpeed = 8f; // How quickly the camera moves
 
+    [Header("Camera Boundaries")]
+    public float minX = -5f; // Furthest left the camera can move
+    public float maxX = 5f; // Furthest right the camera can move
+    public float minY = -3f; // Furthest down the camera can move
+    public float maxY = 3f; // Furthest up the camera can move
+
     private Vector2 movement; // Stores the movement direction
 
     // Runs every frame
@@ -33,11 +39,17 @@ public class CameraMovement : MonoBehaviour
         // Prevent diagonal movement from being faster
         movement = movement.normalized;
 
-        // Move the camera
-        transform.position += new Vector3(
-            movement.x,
-            movement.y,
-            0f
-        ) * cameraSpeed * Time.deltaTime;
+        // Calculate the new camera position
+        Vector3 newPosition = transform.position;
+
+        newPosition.x += movement.x * cameraSpeed * Time.deltaTime;
+        newPosition.y += movement.y * cameraSpeed * Time.deltaTime;
+
+        // Keep the camera inside the factory boundaries
+        newPosition.x = Mathf.Clamp(newPosition.x, minX, maxX);
+        newPosition.y = Mathf.Clamp(newPosition.y, minY, maxY);
+
+        // Apply the new camera position
+        transform.position = newPosition;
     }
 }

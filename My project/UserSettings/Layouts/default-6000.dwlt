@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: GameView
+  m_Name: SceneView
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -218,15 +218,15 @@ MonoBehaviour:
     y: 0
     width: 1267
     height: 665
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 13}
+  m_MinSize: {x: 202, y: 226}
+  m_MaxSize: {x: 4002, y: 4026}
+  m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
   - {fileID: 13}
   - {fileID: 17}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -639,7 +639,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
+    m_EnableMouseInput: 0
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -715,12 +715,13 @@ MonoBehaviour:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs:
-      - m_rawData: 568105584918836224
+      - m_rawData: 568105589213666318
       m_LastClickedID:
-        m_rawData: 0
+        m_rawData: 568105589213666318
       m_ExpandedIDs:
-      - m_rawData: 568105589213694152
-      - m_rawData: 568105589213695134
+      - m_rawData: 568105589213693936
+      - m_rawData: 568105589213694146
+      - m_rawData: 568105589213695122
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1482,9 +1483,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 960, y: 540, z: 0}
+    m_Target: {x: 1.5734707, y: 1.5608447, z: 0.24448463}
     speed: 2
-    m_Value: {x: 960, y: 540, z: 0}
+    m_Value: {x: 1.5734707, y: 1.5608447, z: 0.24448463}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1535,9 +1536,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 81.394104
+    m_Target: 6.3557467
     speed: 2
-    m_Value: 81.394104
+    m_Value: 6.3557467
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1907,7 +1908,7 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_LastSelectedObjectID:
-    m_rawData: 568105584918836224
+    m_rawData: 568105589213666318
 --- !u!114 &21
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1999,7 +2000,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Product Scripts
+    - Assets/Prefabs
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -2009,7 +2010,7 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 56
   m_LastFolders:
-  - Assets/Scripts/Product Scripts
+  - Assets/Prefabs
   m_LastFoldersGridSize: 56
   m_LastProjectPath: C:\Users\deang\Documents\GitHub\FactoryGameProto\My project
   m_LockTracker:
@@ -2018,14 +2019,14 @@ MonoBehaviour:
   m_FolderTreeState:
     scrollPos: {x: 0, y: 2}
     m_SelectedIDs:
-    - m_rawData: 568105584918861778
+    - m_rawData: 568105584918861724
     m_LastClickedID:
-      m_rawData: 568105584918861778
+      m_rawData: 568105584918861724
     m_ExpandedIDs:
-    - m_rawData: 568105589213694566
+    - m_rawData: 568105589213694554
     - m_rawData: 0
-    - m_rawData: 568105584918852216
-    - m_rawData: 568105584918861224
+    - m_rawData: 568105584918852222
+    - m_rawData: 568105584918861232
     - m_rawData: 568105587066273791
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -2087,9 +2088,9 @@ MonoBehaviour:
       m_ResourceFile: 
   m_ListAreaState:
     m_SelectedInstanceIDs:
-    - m_rawData: 568105584918836224
+    - m_rawData: 568105589213666318
     m_LastClickedEntityId:
-      m_rawData: 568105584918836224
+      m_rawData: 568105589213666318
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs:
     - m_rawData: 0

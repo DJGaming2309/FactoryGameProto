@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Project
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: SceneView
+  m_Name: GameView
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -218,15 +218,15 @@ MonoBehaviour:
     y: 0
     width: 1267
     height: 665
-  m_MinSize: {x: 202, y: 226}
-  m_MaxSize: {x: 4002, y: 4026}
-  m_ActualView: {fileID: 16}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 16}
   - {fileID: 13}
   - {fileID: 17}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -275,8 +275,8 @@ MonoBehaviour:
     y: 0
     width: 364
     height: 933
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 76}
+  m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -639,7 +639,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 0
+    m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -715,13 +715,13 @@ MonoBehaviour:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs:
-      - m_rawData: 568105589213666318
+      - m_rawData: 568105584918829060
       m_LastClickedID:
-        m_rawData: 568105589213666318
+        m_rawData: 0
       m_ExpandedIDs:
-      - m_rawData: 568105589213693936
-      - m_rawData: 568105589213694146
-      - m_rawData: 568105589213695122
+      - m_rawData: 568105589213694022
+      - m_rawData: 568105589213695100
+      - m_rawData: 568105584918862250
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1483,9 +1483,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 1.5734707, y: 1.5608447, z: 0.24448463}
+    m_Target: {x: 0.72818136, y: -0.38894653, z: 0.2698968}
     speed: 2
-    m_Value: {x: 1.5734707, y: 1.5608447, z: 0.24448463}
+    m_Value: {x: 0.72818136, y: -0.38894653, z: 0.2698968}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1536,9 +1536,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 6.3557467
+    m_Target: 3.8145475
     speed: 2
-    m_Value: 6.3557467
+    m_Value: 3.8145475
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1908,7 +1908,7 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_LastSelectedObjectID:
-    m_rawData: 568105589213666318
+    m_rawData: 568105584918862232
 --- !u!114 &21
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -2000,7 +2000,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets/Scripts/Machine Scripts
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -2010,23 +2010,28 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 56
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets/Scripts/Machine Scripts
   m_LastFoldersGridSize: 56
   m_LastProjectPath: C:\Users\deang\Documents\GitHub\FactoryGameProto\My project
   m_LockTracker:
     m_IsLocked: 0
   m_LastLocalAssetsSearchArea: 1
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 2}
+    scrollPos: {x: 0, y: 79}
     m_SelectedIDs:
-    - m_rawData: 568105584918861724
+    - m_rawData: 568105584918861270
     m_LastClickedID:
-      m_rawData: 568105584918861724
+      m_rawData: 568105584918861270
     m_ExpandedIDs:
-    - m_rawData: 568105589213694554
+    - m_rawData: 568105589213694472
     - m_rawData: 0
-    - m_rawData: 568105584918852222
-    - m_rawData: 568105584918861232
+    - m_rawData: 568105584918852238
+    - m_rawData: 568105584918852324
+    - m_rawData: 568105584918854550
+    - m_rawData: 568105584918856670
+    - m_rawData: 568105584918857232
+    - m_rawData: 568105584918861250
+    - m_rawData: 568105584918861590
     - m_rawData: 568105587066273791
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -2088,9 +2093,9 @@ MonoBehaviour:
       m_ResourceFile: 
   m_ListAreaState:
     m_SelectedInstanceIDs:
-    - m_rawData: 568105589213666318
+    - m_rawData: 568105584918829060
     m_LastClickedEntityId:
-      m_rawData: 568105589213666318
+      m_rawData: 568105584918829060
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs:
     - m_rawData: 0
@@ -2136,6 +2141,7 @@ MonoBehaviour:
     - m_rawData: 0
     - m_rawData: 0
     - m_rawData: 0
+    - m_rawData: 568105584918859346
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

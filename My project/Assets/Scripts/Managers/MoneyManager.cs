@@ -1,30 +1,40 @@
-
 using UnityEngine;
 using TMPro;
 
 public class MoneyManager : MonoBehaviour
 {
-    public int money = 0; // Stores the player's current money
-    public TextMeshProUGUI moneyText; // Stores the money counter text
+    public int money = 0;
+    public TextMeshProUGUI moneyText;
 
-    // Runs when the game starts
     void Start()
     {
         UpdateMoneyDisplay();
     }
 
-    // Adds money to the player's total
+    //Adds money to the player's total.
     public void AddMoney(int amount)
     {
         money += amount;
-
-        // Update the money counter
         UpdateMoneyDisplay();
     }
 
-    // Updates the text shown on screen
+    //Attempts to spend money.
+    //Returns true if the purchase succeeds.
+    public bool SpendMoney(int amount)
+    {
+        if (amount < 0 || money < amount)
+            return false;
+
+        money -= amount;
+        UpdateMoneyDisplay();
+
+        return true;
+    }
+
+    //Updates the money counter on screen.
     public void UpdateMoneyDisplay()
     {
-        moneyText.text = "£" + money;
+        if (moneyText != null)
+            moneyText.text = "£" + money;
     }
 }

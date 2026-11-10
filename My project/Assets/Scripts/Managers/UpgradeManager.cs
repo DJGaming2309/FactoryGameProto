@@ -5,47 +5,70 @@ using UnityEngine.UI;
 
 public class UpgradeManager : MonoBehaviour
 {
-    public MoneyManager moneyManager; //Reference to the player's money
-    public CashCollection cashCollection; //Reference to the selling area
+    [Header("References")]
+    public MoneyManager moneyManager;
+    public CashCollection cashCollection;
 
-    public Button upgradeButton; //The upgrade button
-    public TextMeshProUGUI upgradeButtonText; //The button's text
+    [Header("Upgrade Button")]
+    public Button upgradeButton;
+    public TextMeshProUGUI upgradeButtonText;
 
-    public int upgradeCost = 50; //Cost of the upgrade
-    public int priceIncrease = 10; //Extra money earned per product
+    [Header("Upgrade Settings")]
+    public int upgradeCost = 100;
+    public int priceIncrease = 10;
+    public int costIncrease = 100;
+    public int maximumUpgradeLevel = 5;
 
-    //Runs when the game starts
+    // Tracks how many upgrades have been purchased.
+    private int upgradeLevel = 0;
+
     void Start()
     {
         UpdateUpgradeButton();
     }
 
-    //Runs when the player clicks the upgrade button
+    // Called when the player clicks the upgrade button.
     public void BuyUpgrade()
     {
-        //Check if the player has enough money
-        if (moneyManager.money >= upgradeCost)
-        {
-            //Remove the upgrade cost from the player's money
-            moneyManager.money -= upgradeCost;
+        // Stop if the maximum level has been reached.
+        if (upgradeLevel >= maximumUpgradeLevel)
+            return;
 
-            //Increase the money earned per product
-            cashCollection.moneyPerProduct += priceIncrease;
+        // Check whether the player can afford the upgrade.
+        if (moneyManager.money < upgradeCost)
+            return;
 
-            //Update the money counter
-            moneyManager.UpdateMoneyDisplay();
+        // Deduct the upgrade cost.
+        moneyManager.money -= upgradeCost;
+        moneyManager.UpdateMoneyDisplay();
 
-            //Disable the button after purchasing
-            upgradeButton.interactable = false;
+        // Increase the value earned from each product.
+        cashCollection.moneyPerProduct += priceIncrease;
 
-            //Update the button text
-            upgradeButtonText.text = "Upgrade Purchased!";
-        }
+        // Increase the upgrade level.
+        upgradeLevel++;
+
+        // Increase the cost of the next upgrade.
+        upgradeCost += costIncrease;
+
+        // Refresh the button.
+        UpdateUpgradeButton();
     }
 
-    //Updates the upgrade button
+    // Updates the upgrade button's text and availability.
     void UpdateUpgradeButton()
     {
-        upgradeButtonText.text = "Upgrade Product Value (£" + upgradeCost + ")";
+        if (upgradeLevel >= maximumUpgradeLevel)
+        {
+            upgradeButtonText.text = "MAX LEVEL REACHED!";
+            upgradeButton.interactable = false;
+        }
+        else
+        {
+            upgradeButtonText.text =
+                "Upgrade Product Value (£" + upgradeCost + ")";
+
+            upgradeButton.interactable = true;
+        }
     }
 }

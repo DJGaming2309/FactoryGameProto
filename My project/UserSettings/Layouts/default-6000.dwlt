@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Console
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: GameView
+  m_Name: SceneView
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -218,15 +218,15 @@ MonoBehaviour:
     y: 0
     width: 1267
     height: 665
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 13}
+  m_MinSize: {x: 202, y: 226}
+  m_MaxSize: {x: 4002, y: 4026}
+  m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
   - {fileID: 13}
   - {fileID: 17}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ProjectBrowser
+  m_Name: ConsoleWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -246,16 +246,16 @@ MonoBehaviour:
     y: 665
     width: 1556
     height: 268
-  m_MinSize: {x: 231, y: 276}
-  m_MaxSize: {x: 10001, y: 10026}
-  m_ActualView: {fileID: 22}
+  m_MinSize: {x: 101, y: 126}
+  m_MaxSize: {x: 4001, y: 4026}
+  m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
   - {fileID: 22}
   - {fileID: 20}
   - {fileID: 19}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -556,6 +556,20 @@ MonoBehaviour:
       layout: 4
       size: {x: 0, y: 0}
       sizeOverridden: 0
+    - dockPosition: 1
+      containerId: overlay-toolbar__top
+      displayed: 0
+      id: Abertay Analytics/Export CSV
+      index: 8
+      contents: '{"m_Layout":4,"m_Collapsed":false,"m_Folded":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
+      floating: 0
+      collapsed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverridden: 0
     m_ContainerData:
     - containerId: overlay-toolbar__top
       scrollOffset: 0
@@ -715,13 +729,51 @@ MonoBehaviour:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs:
-      - m_rawData: 568105584918829060
+      - m_rawData: 568105589213653414
       m_LastClickedID:
-        m_rawData: 0
+        m_rawData: 568105589213653414
       m_ExpandedIDs:
-      - m_rawData: 568105589213694022
-      - m_rawData: 568105589213695100
-      - m_rawData: 568105584918862250
+      - m_rawData: 568105589213653628
+      - m_rawData: 568105589213663502
+      - m_rawData: 568105589213666442
+      - m_rawData: 568105589213666782
+      - m_rawData: 568105589213666816
+      - m_rawData: 568105589213666844
+      - m_rawData: 568105589213669276
+      - m_rawData: 568105589213669616
+      - m_rawData: 568105589213669628
+      - m_rawData: 568105589213669678
+      - m_rawData: 568105589213671118
+      - m_rawData: 568105589213671472
+      - m_rawData: 568105589213672912
+      - m_rawData: 568105589213673672
+      - m_rawData: 568105589213676104
+      - m_rawData: 568105589213676312
+      - m_rawData: 568105589213678074
+      - m_rawData: 568105589213678496
+      - m_rawData: 568105589213678672
+      - m_rawData: 568105589213678884
+      - m_rawData: 568105589213679756
+      - m_rawData: 568105589213681670
+      - m_rawData: 568105589213681922
+      - m_rawData: 568105589213691326
+      - m_rawData: 568105589213691472
+      - m_rawData: 568105589213693710
+      - m_rawData: 568105589213695086
+      - m_rawData: 568105584918862392
+      - m_rawData: 568105584918863450
+      - m_rawData: 568105584918863992
+      - m_rawData: 568105584918864034
+      - m_rawData: 568105584918864052
+      - m_rawData: 568105584918864758
+      - m_rawData: 568105584918865088
+      - m_rawData: 568105584918865224
+      - m_rawData: 568105584918865664
+      - m_rawData: 568105584918865840
+      - m_rawData: 568105584918867104
+      - m_rawData: 568105584918867228
+      - m_rawData: 568105584918867838
+      - m_rawData: 568105584918867898
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1438,6 +1490,20 @@ MonoBehaviour:
       layout: 4
       size: {x: 0, y: 0}
       sizeOverridden: 0
+    - dockPosition: 1
+      containerId: overlay-container--right
+      displayed: 1
+      id: Abertay Analytics
+      index: 15
+      contents: '{"m_Layout":4,"m_Collapsed":false,"m_Folded":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
+      floating: 0
+      collapsed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverridden: 0
     m_ContainerData:
     - containerId: overlay-toolbar__top
       scrollOffset: 0
@@ -1483,9 +1549,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 0.72818136, y: -0.38894653, z: 0.2698968}
+    m_Target: {x: 993.1324, y: 500.7472, z: -4.2850795}
     speed: 2
-    m_Value: {x: 0.72818136, y: -0.38894653, z: 0.2698968}
+    m_Value: {x: 993.1324, y: 500.7472, z: -4.2850795}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1536,9 +1602,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 3.8145475
+    m_Target: 531.5847
     speed: 2
-    m_Value: 3.8145475
+    m_Value: 531.5847
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1908,7 +1974,7 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_LastSelectedObjectID:
-    m_rawData: 568105584918862232
+    m_rawData: 568105589213653414
 --- !u!114 &21
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -2000,7 +2066,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Machine Scripts
+    - Assets
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -2010,28 +2076,26 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 56
   m_LastFolders:
-  - Assets/Scripts/Machine Scripts
+  - Assets
   m_LastFoldersGridSize: 56
   m_LastProjectPath: C:\Users\deang\Documents\GitHub\FactoryGameProto\My project
   m_LockTracker:
     m_IsLocked: 0
   m_LastLocalAssetsSearchArea: 1
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 79}
+    scrollPos: {x: 0, y: 27}
     m_SelectedIDs:
-    - m_rawData: 568105584918861270
+    - m_rawData: 568105584918852270
     m_LastClickedID:
-      m_rawData: 568105584918861270
+      m_rawData: 568105584918852270
     m_ExpandedIDs:
-    - m_rawData: 568105589213694472
+    - m_rawData: 568105589213694518
     - m_rawData: 0
-    - m_rawData: 568105584918852238
-    - m_rawData: 568105584918852324
-    - m_rawData: 568105584918854550
-    - m_rawData: 568105584918856670
-    - m_rawData: 568105584918857232
-    - m_rawData: 568105584918861250
-    - m_rawData: 568105584918861590
+    - m_rawData: 568105584918852270
+    - m_rawData: 568105584918861278
+    - m_rawData: 568105584918871080
+    - m_rawData: 568105584918871098
+    - m_rawData: 568105584918872192
     - m_rawData: 568105587066273791
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -2093,10 +2157,10 @@ MonoBehaviour:
       m_ResourceFile: 
   m_ListAreaState:
     m_SelectedInstanceIDs:
-    - m_rawData: 568105584918829060
+    - m_rawData: 568105589213653414
     m_LastClickedEntityId:
-      m_rawData: 568105584918829060
-    m_HadKeyboardFocusLastEvent: 1
+      m_rawData: 568105589213653414
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs:
     - m_rawData: 0
     - m_rawData: 0

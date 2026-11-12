@@ -5,59 +5,62 @@ using UnityEngine.UI;
 
 public class SpeedUpgrade : MonoBehaviour
 {
-    public MoneyManager moneyManager; //Reference to the player's money
-    public ProductionMachine productionMachine; //Reference to the production machine
+    [Header("References")]
+    public MoneyManager moneyManager; //references to the player's money
+    public ProductionMachine productionMachine; //references to the production machine
 
-    public Button upgradeButton; //The upgrade button
+    [Header("Upgrade Button")]
+    public Button upgradeButton; //the upgrade button
     public TextMeshProUGUI upgradeButtonText; //The button's text
 
-    public int upgradeCost = 75; //Starting upgrade cost
-    public int costIncrease = 50; //Extra cost after each upgrade
-    public float speedIncrease = 0.1f; //How much faster production becomes
+    [Header("Upgrade Settings")]
+    public int upgradeCost = 75; //starting upgrade cost
+    public int costIncrease = 50; //extra cost after each upgrade
+    public float speedIncrease = 0.1f; //how much faster production becomes
 
-    private int upgradeLevel = 0; //Current upgrade level
-    private const float minimumCooldown = 0.1f; //Fastest possible production speed
+    private int upgradeLevel = 0; //the current upgrade level
+    private const float minimumCooldown = 0.1f; //fastest possible production speed
 
-    //Runs when the game starts
+    //runs when the game starts
     void Start()
     {
         UpdateUpgradeButton();
     }
 
-    //Runs when the player clicks the upgrade button
+    //runs when the player clicks the upgrade button
     public void BuySpeedUpgrade()
     {
-        //Check if the machine has reached maximum speed
+        //checks if the machine has reached maximum speed
         if (productionMachine.productionCooldown <= minimumCooldown)
             return;
 
-        //Check if the player has enough money
+        //checks if the player has enough money
         if (moneyManager.money >= upgradeCost)
         {
-            //Remove the upgrade cost from the player's money
+            //removes the upgrade cost from the player's money
             moneyManager.money -= upgradeCost;
 
-            //Update the money counter
+            //updates the money counter
             moneyManager.UpdateMoneyDisplay();
 
-            //Increase production speed
+            //increases production speed
             productionMachine.UpgradeProductionSpeed(speedIncrease);
 
-            //Increase the upgrade level
+            //increases the upgrade level
             upgradeLevel++;
 
-            //Increase the next upgrade cost
+            //increases the next upgrade cost
             upgradeCost += costIncrease;
 
-            // Update the upgrade button
+            //updates the upgrade button
             UpdateUpgradeButton();
         }
     }
 
-    //Updates the upgrade button
+    //updates the upgrade button
     void UpdateUpgradeButton()
     {
-        //Check if maximum production speed has been reached
+        //checks if maximum production speed has been reached
         if (productionMachine.productionCooldown <= minimumCooldown)
         {
             upgradeButtonText.text = "Maximum Speed Reached!";

@@ -3,24 +3,29 @@ using UnityEngine;
 
 public class ConveyorBelt : MonoBehaviour
 {
+    //how fast the conveyor is moving
     [Header("Conveyor Settings")]
     public float beltSpeed = 2f;
 
-    // Shared multiplier used by every conveyor.
+    //shared multiplier used by every conveyor.
     public static float speedMultiplier = 1f;
 
+    //the start and end points of the conveyor
     [Header("Movement Points")]
     public Transform startPoint;
     public Transform endPoint;
 
+    //an arrow to show what way the conveyor is facing
     [Header("Direction Arrow")]
     public Transform directionArrow;
 
+    //checks each frame to show where the conveyer is placed
     private void Update()
     {
         UpdateArrowDirection();
     }
 
+    //corrects the arrow of the which way the conveyor is moving when it is placed
     private void UpdateArrowDirection()
     {
         if (startPoint == null || endPoint == null || directionArrow == null)
@@ -45,21 +50,21 @@ public class ConveyorBelt : MonoBehaviour
         if (productRb == null || startPoint == null || endPoint == null)
             return;
 
-        // Calculate the belt direction.
+        //calculates the belt direction.
         Vector2 direction =
             ((Vector2)endPoint.position - (Vector2)startPoint.position).normalized;
 
-        // Calculate the closest point on the belt's centre line.
+        //calculates the closest point on the belt's centre line.
         Vector2 productPosition = productRb.position;
         Vector2 start = startPoint.position;
 
         Vector2 closestPoint = start +
             Vector2.Dot(productPosition - start, direction) * direction;
 
-        // Gradually correct sideways drifting.
+        //gradually correct sideways drifting.
         Vector2 correction = closestPoint - productPosition;
 
-        // Apply conveyor speed and alignment correction.
+        //applies conveyor speed and alignment correction.
         productRb.linearVelocity = (direction * beltSpeed * speedMultiplier) + (correction * 15f);
     }
 }

@@ -2,24 +2,29 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Collections.Generic;
+using Abertay.Analytics;
 
 public class UpgradeManager : MonoBehaviour
 {
+    //game objects to look at.
     [Header("References")]
     public MoneyManager moneyManager;
     public CashCollection cashCollection;
 
+    //what upgrade button to look at.
     [Header("Upgrade Button")]
     public Button upgradeButton;
     public TextMeshProUGUI upgradeButtonText;
 
+    //what the upgrade does in game
     [Header("Upgrade Settings")]
     public int upgradeCost = 100;
     public int priceIncrease = 10;
     public int costIncrease = 100;
     public int maximumUpgradeLevel = 5;
 
-    // Tracks how many upgrades have been purchased.
+    //tracks how many upgrades have been purchased.
     private int upgradeLevel = 0;
 
     void Start()
@@ -27,35 +32,50 @@ public class UpgradeManager : MonoBehaviour
         UpdateUpgradeButton();
     }
 
-    // Called when the player clicks the upgrade button.
+    //called when the player clicks the upgrade button.
     public void BuyUpgrade()
     {
-        // Stop if the maximum level has been reached.
+        //stops if the maximum level has been reached.
         if (upgradeLevel >= maximumUpgradeLevel)
             return;
 
-        // Check whether the player can afford the upgrade.
+        //checks whether the player can afford the upgrade.
         if (moneyManager.money < upgradeCost)
             return;
 
-        // Deduct the upgrade cost.
+        //takes away the upgrade cost.
         moneyManager.money -= upgradeCost;
         moneyManager.UpdateMoneyDisplay();
 
-        // Increase the value earned from each product.
+        //increases the value earned from each product.
         cashCollection.moneyPerProduct += priceIncrease;
 
-        // Increase the upgrade level.
+        //increases the upgrade level.
         upgradeLevel++;
 
-        // Increase the cost of the next upgrade.
+        //tracks how many upgrades were bought
+        SessionAnalytics.TrackUpgradePurchased();
+
+        //increases the cost of the next upgrade.
         upgradeCost += costIncrease;
 
-        // Refresh the button.
+        //records when an upgrade is purchased.
+        AnalyticsManager.SendCustomEvent(
+            "UpgradePurchased",
+            new Dictionary<string, object>
+            {
+                { "UpgradeType", "ProductValue" },
+                { "UpgradeLevel", upgradeLevel },
+                { "UpgradeCost", upgradeCost - costIncrease },
+                { "ProductValue", cashCollection.moneyPerProduct }
+            }
+        );
+
+        //refreshs the button.
         UpdateUpgradeButton();
     }
 
-    // Updates the upgrade button's text and availability.
+    //updates the upgrade button's text and availability.
     void UpdateUpgradeButton()
     {
         if (upgradeLevel >= maximumUpgradeLevel)

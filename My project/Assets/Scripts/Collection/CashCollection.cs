@@ -1,23 +1,38 @@
+using Abertay.Analytics;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CashCollection : MonoBehaviour
 {
-    public int moneyPerProduct = 10; //Money earned for each product
-    public MoneyManager moneyManager; //Reference to the money manager
+    public int moneyPerProduct = 10; //money earned for each product
+    public MoneyManager moneyManager; //reference to the money manager game object
 
-    //Runs when another collider enters the collection area
+    //runs when another collider enters the collection area
     void OnTriggerEnter2D(Collider2D other)
     {
-        //Checks if the object entering is a product
+        //checks if the game object entering is a product
         if (other.CompareTag("Product"))
         {
-            // Add money to the player's total
+            //adds money to the player's total
             moneyManager.AddMoney(moneyPerProduct);
 
-            //Adds money for the product
+            //tracks how many prodocts were collected
+            SessionAnalytics.TrackProductCollected(moneyPerProduct);
+
+            //records the collection event in Abertay Analytics.
+            AnalyticsManager.SendCustomEvent(
+                "ProductCollected",
+                new Dictionary<string, object>
+                {
+                    { "ProductValue", moneyPerProduct }
+                }
+            );
+
+
+            //adds money for the product
             Debug.Log("Earned £" + moneyPerProduct);
 
-            //Destroy the product after collecting it
+            //destroys the product after collecting it
             Destroy(other.gameObject);
         }
     }

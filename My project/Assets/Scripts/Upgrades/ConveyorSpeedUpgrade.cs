@@ -5,20 +5,23 @@ using UnityEngine.UI;
 
 public class ConveyorSpeedUpgrade : MonoBehaviour
 {
+    //finds money manager
     [Header("References")]
     public MoneyManager moneyManager;
 
+    //finds upgrade button and text
     [Header("Upgrade Button")]
     public Button upgradeButton;
     public TextMeshProUGUI upgradeButtonText;
 
+    //what the upgrade does
     [Header("Upgrade Settings")]
     public int upgradeCost = 150;
     public int costIncrease = 100;
     public float speedIncrease = 0.5f;
     public int maximumUpgradeLevel = 5;
 
-    // Tracks the number of upgrades purchased.
+    //tracks the number of upgrades purchased.
     private int upgradeLevel = 0;
 
     private void Start()
@@ -26,31 +29,31 @@ public class ConveyorSpeedUpgrade : MonoBehaviour
         UpdateUpgradeButton();
     }
 
-    // Called when the player clicks the upgrade button.
+    //called when the player clicks the upgrade button.
     public void BuyConveyorSpeedUpgrade()
     {
-        // Stop if maximum level has been reached.
+        //stops if maximum level has been reached.
         if (upgradeLevel >= maximumUpgradeLevel)
             return;
 
-        // Check whether the player can afford the upgrade.
+        //checks whether the player can afford the upgrade.
         if (!moneyManager.SpendMoney(upgradeCost))
             return;
 
-        // Increase the speed of every conveyor.
+        //increases the speed of every conveyor.
         ConveyorBelt.speedMultiplier += speedIncrease;
 
-        // Increase the upgrade level.
+        //increases the upgrade level.
         upgradeLevel++;
 
-        // Increase the next upgrade cost.
+        //increases the next upgrade cost.
         upgradeCost += costIncrease;
 
-        // Refresh the button.
+        //refreshs the button.
         UpdateUpgradeButton();
     }
 
-    // Updates the upgrade button.
+    //updates the upgrade button.
     private void UpdateUpgradeButton()
     {
         if (upgradeLevel >= maximumUpgradeLevel)
